@@ -35,7 +35,7 @@ const StatsPop = ({close}) => {
         <h1>Stats</h1>
         <div id="barchart">
           <div id= "barchart-bars-container">
-            {yVals.map((y,i)=> <div className='barchart-bar' style={{height: `${100*y/getMaxValue(yVals)}%`, backgroundColor: `${i ==6 && "red"}`}} key={i}>{y? y:""}</div>)}
+            {yVals.map((y,i)=> <div className='barchart-bar' style={{height: `${100*y/getMaxValue(yVals)}%`, backgroundColor: `${i === 6 && "red"}`}} key={i}>{y? y:""}</div>)}
           </div>
           <div id="barchart-labels-container">
             {xVals.map((x,i)=> <p className='barchart-label' key={i} style={{color: `${i === 6 && "red"}`}}>{x === "X"?"X":`${x}°`}</p>)}
