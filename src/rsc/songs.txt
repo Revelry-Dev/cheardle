@@ -1,38 +1,42 @@
 [
   {
     "artist": "Alan Jackson",
-    "song": "Chattahoochee"
+    "name": "Chattahoochee"
   },
   {
     "artist": "Maren Morris",
-    "song": "My Church"
+    "name": "My Church"
   },
   {
     "artist": "Luke Combs",
-    "song": "Forever After All"
+    "name": "Forever After All"
   },
   {
     "artist": "Kelsea Ballerini",
-    "song": "IF YOU GO DOWN (I'M GOIN' DOWN TOO)"
+    "name": "IF YOU GO DOWN (I'M GOIN' DOWN TOO)"
   },
   {
     "artist": "Trisha Yearwood",
-    "song": "She’s In Love With The Boy"
+    "name": "She’s In Love With The Boy"
   },
   {
     "artist": "Reba McEntire",
-    "song": "Fancy"
+    "name": "Fancy"
   },
   {
     "artist": "Tracy Byrd",
-    "song": "Watermelon Crawl"
+    "name": "Watermelon Crawl"
   },
   {
     "artist": "Merle Haggard",
-    "song": "Mama Tried"
+    "name": "Mama Tried"
   },
   {
     "artist": "George Jones",
-    "song": "He Stopped Loving Her Today"
+    "name": "He Stopped Loving Her Today"
+  },
+  {
+    "artist": "Miranda Lambert",
+    "name": "Kerosene"
   }
 ]
