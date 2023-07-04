@@ -24,7 +24,7 @@ const ProgressBar = ({isPlaying, guessNum,duration}) => {
 
     let ms10 = 0;
     setIntervalID(setInterval(()=>setTimeElapsed((++ms10)/10),100))
-  },[isPlaying, intervalID])
+  },[isPlaying])
   
     const getTimerFormat = (totalSecs)=>{
         let mins = Math.floor(totalSecs/60)
