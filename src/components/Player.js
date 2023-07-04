@@ -48,11 +48,12 @@ const Player = ({guessNum}) => {
     if(!ytReady) return;
     playerRef.current.internalPlayer.setVolume(100);
     playerRef.current.internalPlayer.seekTo(correctSong.offset);
+    playerRefValue = playerRef.current.internalPlayer.seekTo(correctSong.offset);
 
     if(hasPlayedToday) playerRef.current.internalPlayer.playVideo(); 
 
     return () => {
-      playerRef.current.internalPlayer.seekTo(correctSong.offset)
+      playerRefValue;
     }
   },[ytReady, correctSong.offset, hasPlayedToday, playerRef])
   
