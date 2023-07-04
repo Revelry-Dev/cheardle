@@ -15,7 +15,7 @@ const Player = ({guessNum}) => {
   const stopSong = useCallback(() => {
     playerRef.current.internalPlayer.pauseVideo();
     playerRef.current.internalPlayer.seekTo(correctSong.offset);
-  })
+  }, [])
 
   const playSong = () =>{
     playerRef.current.internalPlayer.playVideo();
