@@ -38,5 +38,9 @@
   {
     "artist": "Miranda Lambert",
     "name": "Kerosene"
+  },
+  {
+    "artist": "Diamond Rio",
+    "name": "Meet in the Middle"
   }
 ]

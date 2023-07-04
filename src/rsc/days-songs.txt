@@ -52,5 +52,17 @@
     "name": "He Stopped Loving Her Today",
     "id": "es1uCh48TNY",
     "offset": 0
+  },
+  {
+    "artist": "Miranda Lambert",
+    "name": "Kerosene",
+    "id": "rB7ONnfIjaI",
+    "offset": 0
+  },
+  {
+    "artist": "Diamond Rio",
+    "name": "Meet in the Middle",
+    "id": "qWKpCmPdGmM",
+    "offset": 0
   }
 ]
