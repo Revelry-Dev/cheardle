@@ -5,8 +5,11 @@
 /.pnp
 .pnp.js
 
-# testing
-/coverage
+# exclude everything except directory rsc
+   rsc/
+    
+
+
 
 # production
 /build
