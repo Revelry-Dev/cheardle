@@ -15,7 +15,7 @@ const Player = ({guessNum}) => {
   const stopSong = useCallback(() => {
     playerRef.current.internalPlayer.pauseVideo();
     playerRef.current.internalPlayer.seekTo(correctSong.offset);
-  },[])
+  },[correctSong.offset, playerRef])
 
   const playSong = () =>{
     playerRef.current.internalPlayer.playVideo();
@@ -48,11 +48,12 @@ const Player = ({guessNum}) => {
     if(!ytReady) return;
     playerRef.current.internalPlayer.setVolume(100);
     playerRef.current.internalPlayer.seekTo(correctSong.offset);
+    playerRefCurrent = playerRef.current;
 
     if(hasPlayedToday) playerRef.current.internalPlayer.playVideo(); 
 
     return () => {
-      playerRef.current.internalPlayer.seekTo(correctSong.offset)
+      playerRefCurrent.internalPlayer.seekTo(correctSong.offset)
     }
   },[ytReady, correctSong.offset, hasPlayedToday, playerRef])
   
