@@ -75,7 +75,7 @@
     "artist": "Billy Ray Cyrus",
     "name": "Achy Breaky Heart",
     "id": "byQIPdHMpjc",
-    "offset": 0
+    "offset": 15
   },
   {
     "artist": "Shania Twain",
