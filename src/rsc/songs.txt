@@ -17,7 +17,7 @@
   },
   {
     "artist": "Trisha Yearwood",
-    "song": "She’s In Love With The Boy"
+    "song": "She's In Love With The Boy"
   },
   {
     "artist": "Reba McEntire",
@@ -42,5 +42,17 @@
   {
     "artist": "Diamond Rio",
     "song": "Meet in the Middle"
+  },
+  {
+    "artist": "Taylor Swift",
+    "song": "Picture to Burn"
+  },
+  {
+    "artist": "Billy Ray Cyrus",
+    "song": "Achy Breaky Heart"
+  },
+  {
+    "artist": "Shania Twain",
+    "song": "Man! I Feel Like A Woman"
   }
 ]

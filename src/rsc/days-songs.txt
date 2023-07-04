@@ -64,5 +64,23 @@
     "name": "Meet in the Middle",
     "id": "qWKpCmPdGmM",
     "offset": 0
+  },
+  {
+    "artist": "Taylor Swift",
+    "name": "Picture to Burn",
+    "id": "yCMqcFAigRg",
+    "offset": 0
+  },
+  {
+    "artist": "Billy Ray Cyrus",
+    "name": "Achy Breaky Heart",
+    "id": "byQIPdHMpjc",
+    "offset": 0
+  },
+  {
+    "artist": "Shania Twain",
+    "name": "Man! I Feel Like A Woman",
+    "id": "ZJL4UGSbeFg",
+    "offset": 0
   }
 ]
