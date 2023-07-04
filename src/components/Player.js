@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react'
+import React, { useState,useEffect, useCallback } from 'react'
 import useGlobal from '../hooks/useGlobal';
 import ProgressBar from './ProgressBar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -12,10 +12,10 @@ const Player = ({guessNum}) => {
 
   //handles song having been played for allocated time
   
-  const stopSong = () => {
+  const stopSong = useCallback(() => {
     playerRef.current.internalPlayer.pauseVideo();
     playerRef.current.internalPlayer.seekTo(correctSong.offset);
-  }
+  })
 
   const playSong = () =>{
     playerRef.current.internalPlayer.playVideo();
