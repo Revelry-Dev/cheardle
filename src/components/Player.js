@@ -44,9 +44,9 @@ const Player = ({guessNum}) => {
     
   }
   
-  useEffect((value)=>{
+  useEffect(()=>{
     if(!ytReady) return;
-    playerRefValue=useRef(value)
+    playerRefValue=playerRef
      playerRefValue.internalPlayer.setVolume(100);
     playerRefValue.internalPlayer.seekTo(correctSong.offset);
 
