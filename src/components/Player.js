@@ -44,16 +44,17 @@ const Player = ({guessNum}) => {
     
   }
   
-  useEffect(()=>{
+  useEffect((value)=>{
     if(!ytReady) return;
-    playerRef.current.internalPlayer.setVolume(100);
-    playerRef.current.internalPlayer.seekTo(correctSong.offset);
-    playerRefCurrent = playerRef.current;
+    playerRefValue=useRef(value)
+     playerRefValue.internalPlayer.setVolume(100);
+    playerRefValue.internalPlayer.seekTo(correctSong.offset);
 
-    if(hasPlayedToday) playerRef.current.internalPlayer.playVideo(); 
+
+    if(hasPlayedToday)  playerRefValue.internalPlayer.playVideo(); 
 
     return () => {
-      playerRefCurrent.internalPlayer.seekTo(correctSong.offset)
+       playerRefValue.internalPlayer.seekTo(correctSong.offset)
     }
   },[ytReady, correctSong.offset, hasPlayedToday, playerRef])
   
