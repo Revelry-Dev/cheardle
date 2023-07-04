@@ -23,7 +23,7 @@ const OPTS = {width: "0", height:"0"}
 
 function App() {
 
-  const {setHasPlayedToday,setIsCorrect,playerRef, correctSong, setCorrectSong, setIsPlaying, ytReady } = useGlobal();
+  const {setHasPlayedToday,setIsCorrect,playerRef, correctSong, setCorrectSong, setIsPlaying, ytReady, setDuration, duration, setYtReady } = useGlobal();
   const [t,setT] = useState(false)
 
 
@@ -103,6 +103,18 @@ function App() {
       return
     }
 
+   
+    const getDuration = (async() =>{
+    const durationPromise = playerRef.current.internalPlayer.getDuration()
+    durationPromise.then((d)=>{
+      setDuration(Math.floor(d - correctSong.offset))
+      setYtReady(true)
+      console.log(ytReady)
+      console.log(duration)
+      console.log(getDuration)
+    
+    }
+    )})();
    
    
   } 
