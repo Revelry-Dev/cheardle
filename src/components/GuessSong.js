@@ -10,7 +10,7 @@ const NUM_OF_BARS = 6
 const CUSTOM_WHITE = "rgb(227, 227, 227)"
 const GuessSong = () => {
 
-  const {correctSong, setIsCorrect, setHasPlayedToday, isPlaying,setIsPlaying, ytReady} = useGlobal();
+  const {correctSong, setIsCorrect, setHasPlayedToday, setIsPlaying, ytReady} = useGlobal();
 
   const [songs, setSongs] = useState([])
   const [guesses, setGuesses] = useState(new Array(NUM_OF_BARS));
@@ -44,13 +44,13 @@ const GuessSong = () => {
 
   const getPrevGuessNum = (sgs) =>{
     for (let i = 0; i<sgs.length; i++){
-      if (sgs[i] == "") return i;
+      if (sgs[i] === "") return i;
     }
   }
 
   //runs every time current guess changes (TODO: Searches for matches)
   useEffect(() =>{
-    if(currentGuess == ""){
+    if(currentGuess === ""){
       return;
     }
     //TODO: make this more efficient with tree / linked list type structure of popping songs on and off it instead of searching through all songs every time
@@ -60,7 +60,7 @@ const GuessSong = () => {
       let g = currentGuess.toLowerCase();
       return `${s} - ${a}`.includes(g);
   }));
-  },[currentGuess])
+  },[currentGuess, songs])
 
 
   useEffect(() =>{
@@ -69,7 +69,7 @@ const GuessSong = () => {
 
   const updateGuessesArray = (x) =>{
     setGuesses(guesses.map((e,i) => {
-      return i == guessNum? x : e;
+      return i === guessNum? x : e;
     }))
   }
  
@@ -105,8 +105,8 @@ const GuessSong = () => {
     <div id="guess-song-container">
       <div className='bars'>
         {guesses.map((g,i) =>{
-          return  <div className={`guess-box ${(guessNum == i) ? "active":""}`} key={i}>
-            <FontAwesomeIcon id= "square-x-icon" icon = {faSquareXmark} className = {guessNum <= i ? "invisible" : (guesses[i] != "SKIPPED"? "incorrect":"")} /> 
+          return  <div className={`guess-box ${(guessNum === i) ? "active":""}`} key={i}>
+            <FontAwesomeIcon id= "square-x-icon" icon = {faSquareXmark} className = {guessNum <= i ? "invisible" : (guesses[i] !== "SKIPPED"? "incorrect":"")} /> 
             {/*className={currentGuess > i ? "":"invisible"}*/ }
             <p>{g}</p>
             </div>
@@ -120,7 +120,7 @@ const GuessSong = () => {
       {searchBarFocused && <div id="search-overlay" onClick={() => setSearchBarFocused(false)} />}
 
       <div id="guess-container" style={searchBarFocused? {  border: `solid ${CUSTOM_WHITE} 1px`} : {}}>
-        {currentGuess != "" && songMatches.length > 0 && searchBarFocused &&
+        {currentGuess !== "" && songMatches.length > 0 && searchBarFocused &&
           <div id="song-matches">
             {songMatches.slice(0,10).map((e,i) =>
             <div 
@@ -157,7 +157,7 @@ const GuessSong = () => {
 
       <div id="submit-btns-container">
         <button id="skip" onClick={onSkip} disabled={!ytReady} >Skip {guessNum <5 && `(+${guessNum+1}s)`}</button>
-        <button id="submit" onClick = {onSubmit} disabled={searchRef?.current?.value =="" || !ytReady}>Submit</button>
+        <button id="submit" onClick = {onSubmit} disabled={searchRef?.current?.value === "" || !ytReady}>Submit</button>
       </div>
 
     </div>

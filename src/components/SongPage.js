@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect  } from 'react'
 import useGlobal from '../hooks/useGlobal'
 import Player from './Player';
 import ShareButton from './ShareButton';
@@ -27,13 +27,13 @@ const SongPage = () => {
             
             <div id="song-box" onClick={() => openInNewTab(`https://youtu.be/${correctSong.id}&t=${Math.floor(correctSong.offset)}`)}>
                 <div id="img-text-container">    
-                    <img src={imgURL} id="thumbnail-img"/>
+                    <img src={imgURL} id="thumbnail-img" alt="{correctSong}"/>
                     <div id="name-and-artist">
                         <p>{correctSong.name}</p>
                         <p id='song-artist'>{correctSong.artist}</p>
                     </div>
                 </div>
-                <img src={"https://cdn-icons-png.flaticon.com/512/1384/1384060.png"} id="yt-icon"></img>
+                <img src={"https://cdn-icons-png.flaticon.com/512/1384/1384060.png"} alt ="youtube icon" id="yt-icon"></img>
             </div>
             <h1>{isCorrect? CORRECT_H1:INCORRECT_H1} </h1>
             <div id="dashes-container">

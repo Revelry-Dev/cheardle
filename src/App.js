@@ -23,7 +23,7 @@ const OPTS = {width: "0", height:"0"}
 
 function App() {
 
-  const {setHasPlayedToday,setIsCorrect,playerRef, correctSong, setCorrectSong, setIsPlaying, setDuration,duration, ytReady, setYtReady} = useGlobal();
+  const {setHasPlayedToday,setIsCorrect,playerRef, correctSong, setCorrectSong, setIsPlaying, ytReady } = useGlobal();
   const [t,setT] = useState(false)
 
 
@@ -66,7 +66,7 @@ function App() {
 
   const isToday = (someDate) => {
     const today = new Date()
-    return someDate?.getDate() ===today.getDate() &&
+    return someDate?.getDate() === today.getDate() &&
       someDate?.getMonth() === today.getMonth() &&
       someDate?.getFullYear() === today.getFullYear()
   }
@@ -81,37 +81,29 @@ function App() {
   }
 
   const onStateChange =(e) =>{
-    if(e.data ==2){
+    if(e.data === 2){
       setIsPlaying(false)
       return
     }
     
     
-    if(e.data == 1) {
+    if(e.data === 1) {
       setIsPlaying(true)
       return
     }
     
-    if(ytReady && e.data == 3){
+    if(ytReady && e.data === 3){
       setIsPlaying(false)
       return
     }
 
-    if(e.data != -1 || ytReady) return
+    if(e.data !== -1 || ytReady) return
     if(!t){
       setT(true)
       return
     }
 
-   const ip = playerRef.current.internalPlayer;
-   const getDuration = (async() =>{
-    const durationPromise = playerRef.current.internalPlayer.getDuration()
-    durationPromise.then((d)=>{
-      setDuration(Math.floor(d - correctSong.offset))
-      setYtReady(true)
-      console.log("ready")
-    }
-    )})();
+   
    
   } 
 

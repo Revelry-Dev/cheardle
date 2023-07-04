@@ -8,7 +8,7 @@ const Player = ({guessNum}) => {
   const [timeoutID, setTimeoutID] = useState()
   const [timeStarted, setTimeStarted] = useState(new Date())
 
-  const {correctSong, isPlaying,setIsPlaying,playerRef, setHasPlayedToday, hasPlayedToday, duration,ytReady} = useGlobal();
+  const { correctSong, isPlaying, playerRef, setHasPlayedToday, hasPlayedToday, duration, ytReady } = useGlobal();
 
   //handles song having been played for allocated time
   
@@ -54,7 +54,7 @@ const Player = ({guessNum}) => {
     return () => {
       playerRef.current.internalPlayer.seekTo(correctSong.offset)
     }
-  },[ytReady])
+  },[ytReady, correctSong.offset, hasPlayedToday, playerRef])
   
   useEffect(() =>{
     if (!isPlaying) {
@@ -64,11 +64,11 @@ const Player = ({guessNum}) => {
     let playFor = guessNum !== undefined? getGuessTime(guessNum):duration*1000
     setTimeoutID(setTimeout(stopSong,playFor)) //guess time secs -> ms
     setTimeStarted(new Date())
-  }, [isPlaying])
+  }, [isPlaying, duration, guessNum, stopSong, timeoutID])
 
   //handles when the user skips while the song is playing (so keeps playing until new time slot)
   useEffect(()=>{
-    if(guessNum == 0 || guessNum == undefined) return //when guessNum is first set
+    if(guessNum === 0 || guessNum === undefined) return //when guessNum is first set
     
     if(guessNum > 5) 
     {
@@ -84,12 +84,12 @@ const Player = ({guessNum}) => {
 
     let timeRemaining = getGuessTime(guessNum) - ((new Date()) - timeStarted);
     setTimeoutID(setTimeout(stopSong,timeRemaining))
-  }, [guessNum])
+  }, [guessNum, isPlaying, playerRef, setHasPlayedToday, stopSong, timeStarted, timeoutID])
 
 
   return (
     <>
-      <ProgressBar isPlaying={isPlaying} guessNum={guessNum} duration={guessNum === undefined? duration: 16 }/>
+      <ProgressBar isPlaying={isPlaying} guessNum={guessNum} duration={guessNum === undefined ? duration: 16 }/>
      
      {ytReady ?
       <button className="play-btn">
