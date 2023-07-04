@@ -6,7 +6,7 @@
 .pnp.js
 
 # exclude everything except directory rsc
-*/rsc/
+#*/rsc/
     
 
 
